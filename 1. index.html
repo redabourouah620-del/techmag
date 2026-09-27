@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TechMag | أخبار التقنية والذكاء الاصطناعي</title>
+
+    <meta name="description"
+          content="TechMag - أخبار ومقالات تقنية حول الذكاء الاصطناعي والهواتف والبرمجة والأمن السيبراني.">
+
+    <meta name="theme-color" content="#0b1020">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="container header-inner">
+
+        <a href="#" class="logo" onclick="showHome()">
+            Tech<span>Mag</span>
+        </a>
+
+        <nav class="desktop-nav">
+
+            <a href="#" onclick="showHome()">الرئيسية</a>
+
+            <a href="#latest">آخر الأخبار</a>
+
+            <a href="#categories">التصنيفات</a>
+
+            <a href="#" onclick="filterCategory('الذكاء الاصطناعي')">
+                الذكاء الاصطناعي
+            </a>
+
+            <a href="#" onclick="filterCategory('الهواتف')">
+                الهواتف
+            </a>
+
+        </nav>
+
+        <div class="header-actions">
+
+            <button
+                class="icon-button"
+                onclick="toggleSearch()"
+                aria-label="بحث">
+                🔎
+            </button>
+
+            <button
+                class="icon-button"
+                onclick="toggleTheme()"
+                id="themeButton"
+                aria-label="الوضع الليلي">
+                🌙
+            </button>
+
+            <button
+                class="menu-button"
+                onclick="toggleMenu()">
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-panel" id="searchPanel">
+
+        <div class="container">
+
+            <div class="search-wrapper">
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="ابحث في TechMag..."
+                    oninput="searchArticles()">
+
+                <button onclick="clearSearch()">
+                    ×
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= MOBILE MENU ================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#" onclick="showHome();closeMenu()">
+        الرئيسية
+    </a>
+
+    <a href="#latest" onclick="closeMenu()">
+        آخر الأخبار
+    </a>
+
+    <a href="#categories" onclick="closeMenu()">
+        التصنيفات
+    </a>
+
+    <a href="#" onclick="filterCategory('الذكاء الاصطناعي');closeMenu()">
+        الذكاء الاصطناعي
+    </a>
+
+    <a href="#" onclick="filterCategory('الهواتف');closeMenu()">
+        الهواتف
+    </a>
+
+    <a href="#" onclick="filterCategory('البرمجة');closeMenu()">
+        البرمجة
+    </a>
+
+</div>
+
+
+<!-- ================= BREAKING NEWS ================= -->
+
+<div class="breaking">
+
+    <div class="container breaking-inner">
+
+        <strong>آخر الأخبار</strong>
+
+        <div class="ticker">
+            <span>
+                أخبار وتقارير تقنية وشروحات جديدة على TechMag
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main id="mainContent">
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container hero-grid">
+
+        <article
+            class="featured"
+            onclick="openArticle(0)">
+
+            <div class="featured-image">
+                AI
+            </div>
+
+            <div class="featured-content">
+
+                <span class="category">
+                    الذكاء الاصطناعي
+                </span>
+
+                <h1>
+                    كيف يغير الذكاء الاصطناعي طريقة استخدامنا للتكنولوجيا؟
+                </h1>
+
+                <p>
+                    نظرة مبسطة على تطور أدوات الذكاء الاصطناعي
+                    وتأثيرها على العمل والتعليم والبرمجة.
+                </p>
+
+                <div class="article-meta">
+
+                    <span>
+                        27 سبتمبر 2026
+                    </span>
+
+                    <span>
+                        6 دقائق قراءة
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <div class="side-news">
+
+            <article
+                class="mini-card"
+                onclick="openArticle(1)">
+
+                <div class="mini-image phone">
+                    PHONE
+                </div>
+
+                <div>
+
+                    <span class="category">
+                        الهواتف
+                    </span>
+
+                    <h3>
+                        ما الذي يجب معرفته قبل شراء هاتف جديد؟
+                    </h3>
+
+                    <small>
+                        5 دقائق قراءة
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="mini-card"
+                onclick="openArticle(2)">
+
+                <div class="mini-image security">
+                    SECURITY
+                </div>
+
+                <div>
+
+                    <span class="category">
+                        الأمن السيبراني
+                    </span>
+
+                    <h3>
+                        خطوات بسيطة لحماية حساباتك على الإنترنت
+                    </h3>
+
+                    <small>
+                        4 دقائق قراءة
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="mini-card"
+                onclick="openArticle(3)">
+
+                <div class="mini-image coding">
+                    CODE
+                </div>
+
+                <div>
+
+                    <span class="category">
+                        البرمجة
+                    </span>
+
+                    <h3>
+                        كيف تبدأ تعلم تطوير المواقع من الصفر؟
+                    </h3>
+
+                    <small>
+                        7 دقائق قراءة
+                    </small>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AD PLACEHOLDER ================= -->
+
+<div class="container">
+
+    <div class="ad-space">
+        مساحة إعلانية
+    </div>
+
+</div>
+
+
+<!-- ================= LATEST ================= -->
+
+<section id="latest" class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    TechMag
+                </span>
+
+                <h2>
+                    أحدث المقالات
+                </h2>
+
+            </div>
+
+            <button
+                class="outline-button"
+                onclick="showAllArticles()">
+                عرض الكل
+            </button>
+
+        </div>
+
+
+        <div
+            class="articles-grid"
+            id="articlesGrid">
+
+        </div>
+
+
+        <div
+            class="no-results"
+            id="noResults">
+
+            لا توجد مقالات مطابقة لبحثك.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MOST READ ================= -->
+
+<section class="section popular-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    الأكثر قراءة
+                </span>
+
+                <h2>
+                    مقالات يقرأها الزوار
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="popular-grid">
+
+            <article
+                class="popular-card"
+                onclick="openArticle(0)">
+
+                <strong>01</strong>
+
+                <div>
+
+                    <h3>
+                        كيف يغير الذكاء الاصطناعي عالم التكنولوجيا؟
+                    </h3>
+
+                    <span>
+                        🤖 الذكاء الاصطناعي
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="popular-card"
+                onclick="openArticle(1)">
+
+                <strong>02</strong>
+
+                <div>
+
+                    <h3>
+                        كيف تختار هاتفاً مناسباً لاحتياجاتك؟
+                    </h3>
+
+                    <span>
+                        📱 الهواتف
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="popular-card"
+                onclick="openArticle(4)">
+
+                <strong>03</strong>
+
+                <div>
+
+                    <h3>
+                        أهم النصائح لحماية حساباتك الرقمية
+                    </h3>
+
+                    <span>
+                        🔐 الأمن السيبراني
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section
+    class="section"
+    id="categories">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    استكشف
+                </span>
+
+                <h2>
+                    التصنيفات
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="categories-grid">
+
+            <button
+                onclick="filterCategory('الذكاء الاصطناعي')">
+
+                <span>🤖</span>
+
+                <strong>
+                    الذكاء الاصطناعي
+                </strong>
+
+                <small>
+                    مقالات وأدوات AI
+                </small>
+
+            </button>
+
+
+            <button
+                onclick="filterCategory('الهواتف')">
+
+                <span>📱</span>
+
+                <strong>
+                    الهواتف
+                </strong>
+
+                <small>
+                    أخبار ومراجعات
+                </small>
+
+            </button>
+
+
+            <button
+                onclick="filterCategory('البرمجة')">
+
+                <span>💻</span>
+
+                <strong>
+                    البرمجة
+                </strong>
+
+                <small>
+                    تعلم وتطوير
+                </small>
+
+            </button>
+
+
+            <button
+                onclick="filterCategory('الأمن السيبراني')">
+
+                <span>🔐</span>
+
+                <strong>
+                    الأمن السيبراني
+                </strong>
+
+                <small>
+                    حماية وأمان
+                </small>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter">
+
+    <div class="container">
+
+        <div class="newsletter-box">
+
+            <div>
+
+                <span>
+                    TechMag Newsletter
+                </span>
+
+                <h2>
+                    احصل على أحدث المقالات
+                </h2>
+
+                <p>
+                    نموذج تجريبي للاشتراك في النشرة البريدية.
+                </p>
+
+            </div>
+
+
+            <form onsubmit="subscribe(event)">
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="بريدك الإلكتروني"
+                    required>
+
+                <button>
+                    اشتراك
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= ARTICLE PAGE ================= -->
+
+<section
+    class="article-page"
+    id="articlePage">
+
+    <div class="container">
+
+        <button
+            class="back-button"
+            onclick="closeArticle()">
+
+            ← العودة للمقالات
+
+        </button>
+
+
+        <article class="full-article">
+
+            <span
+                class="category"
+                id="articleCategory">
+            </span>
+
+
+            <h1 id="articleTitle">
+            </h1>
+
+
+            <div
+                class="article-page-meta"
+                id="articleMeta">
+            </div>
+
+
+            <div
+                class="article-cover"
+                id="articleCover">
+            </div>
+
+
+            <div
+                class="article-body"
+                id="articleBody">
+            </div>
+
+
+            <div class="share-row">
+
+                <span>
+                    شارك المقال:
+                </span>
+
+                <button onclick="shareArticle()">
+                    مشاركة
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+        <div>
+
+            <div class="footer-logo">
+                Tech<span>Mag</span>
+            </div>
+
+            <p>
+                منصة عربية للمقالات والأخبار التقنية.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                الأقسام
+            </h3>
+
+            <a href="#categories">
+                الذكاء الاصطناعي
+            </a>
+
+            <a href="#categories">
+                الهواتف
+            </a>
+
+            <a href="#categories">
+                البرمجة
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                الموقع
+            </h3>
+
+            <a href="#">
+                الرئيسية
+            </a>
+
+            <a href="#latest">
+                المقالات
+            </a>
+
+            <a href="#categories">
+                التصنيفات
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 TechMag — جميع الحقوق محفوظة
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
